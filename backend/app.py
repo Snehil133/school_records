@@ -5,8 +5,6 @@ import os
 from datetime import datetime, date
 import hashlib
 import logging
-import cv2
-import numpy as np
 import base64
 from PIL import Image
 import io
@@ -51,8 +49,8 @@ logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s'
 )
 
-# Load OpenCV face detection classifier
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+# Face recognition disabled for Vercel deployment
+# OpenCV dependencies removed for serverless compatibility
 
 def load_students():
     """Load students from JSON file"""
@@ -238,78 +236,38 @@ def get_attendance_for_student(student_id, start_date=None, end_date=None):
     return student_attendance
 
 def detect_faces(image_array):
-    """Detect faces in an image using OpenCV"""
-    try:
-        # Convert to grayscale for face detection
-        gray = cv2.cvtColor(image_array, cv2.COLOR_BGR2GRAY)
-        
-        # Detect faces
-        faces = face_cascade.detectMultiScale(
-            gray,
-            scaleFactor=1.1,
-            minNeighbors=5,
-            minSize=(30, 30)
-        )
-        
-        return len(faces) > 0, len(faces)
-    except Exception as e:
-        return False, 0
+    """Simplified face detection for Vercel deployment"""
+    # For Vercel deployment, we'll just return True to simulate face detection
+    # In a real deployment, you would use a cloud-based face detection service
+    return True, 1
 
 def verify_face(image_data, student_roll_number):
-    """Verify face using simple face detection"""
+    """Verify face using simplified detection for Vercel"""
     try:
         # Decode base64 image
         image_bytes = base64.b64decode(image_data.split(',')[1])
         image = Image.open(io.BytesIO(image_bytes))
-        image_array = np.array(image)
-        
-        # Convert RGB to BGR for OpenCV
-        if len(image_array.shape) == 3:
-            image_array = cv2.cvtColor(image_array, cv2.COLOR_RGB2BGR)
         
         # Load face data
         face_data = load_face_data()
         if student_roll_number not in face_data:
             return False, "No face data registered for this student. Please register your face first."
         
-        # Check if face is detected
-        face_detected, face_count = detect_faces(image_array)
-        
-        if not face_detected:
-            return False, "No face detected in the image. Please position your face clearly in the camera."
-        
-        if face_count > 1:
-            return False, "Multiple faces detected. Please ensure only one face is visible in the camera."
-        
-        # For this simplified version, we'll just verify that a face is detected
-        # In a real implementation, you would compare face features
-        return True, "Face verified successfully"
+        # For Vercel deployment, we'll just verify that an image was provided
+        # In a real implementation, you would use a cloud-based face verification service
+        return True, "Face verified successfully (simplified for Vercel deployment)"
         
     except Exception as e:
         return False, f"Error during face verification: {str(e)}"
 
 def register_face(image_data, student_roll_number):
-    """Register face data for a student"""
+    """Register face data for a student (simplified for Vercel)"""
     try:
         # Decode base64 image
         image_bytes = base64.b64decode(image_data.split(',')[1])
         image = Image.open(io.BytesIO(image_bytes))
-        image_array = np.array(image)
         
-        # Convert RGB to BGR for OpenCV
-        if len(image_array.shape) == 3:
-            image_array = cv2.cvtColor(image_array, cv2.COLOR_RGB2BGR)
-        
-        # Check if face is detected
-        face_detected, face_count = detect_faces(image_array)
-        
-        if not face_detected:
-            return False, "No face detected in the image. Please position your face clearly in the camera."
-        
-        if face_count > 1:
-            return False, "Multiple faces detected. Please ensure only one face is visible in the camera."
-        
-        # Store face data (simplified - just store that face was detected)
+        # Store face data (simplified for Vercel deployment)
         face_data = load_face_data()
         face_data[student_roll_number] = {
             'registered_at': datetime.now().isoformat(),
@@ -317,7 +275,7 @@ def register_face(image_data, student_roll_number):
         }
         
         save_face_data(face_data)
-        return True, "Face registered successfully. Please login again to mark attendance."
+        return True, "Face registered successfully (simplified for Vercel deployment). Please login again to mark attendance."
         
     except Exception as e:
         return False, f"Error during face registration: {str(e)}"
