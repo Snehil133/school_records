@@ -1,0 +1,20 @@
+{
+  "principal": {
+    "username": "principal",
+    "password": "3549f22fb8622a6d216ef2dcd592e04ed1f1e604cef032d7e5c425e8e72a878e",
+    "role": "principal",
+    "name": "Principal"
+  },
+  "teacher1": {
+    "username": "teacher1",
+    "password": "cde383eee8ee7a4400adf7a15f716f179a2eb97646b37e089eb8d6d04e663416",
+    "role": "teacher",
+    "name": "Sarah Johnson"
+  },
+  "teacher2": {
+    "username": "teacher2",
+    "password": "cde383eee8ee7a4400adf7a15f716f179a2eb97646b37e089eb8d6d04e663416",
+    "role": "teacher",
+    "name": "Michael Chen"
+  }
+}

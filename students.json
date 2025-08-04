@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "John Smith",
+    "dob": "2005-03-15",
+    "class": "10A",
+    "roll_number": "2024001",
+    "created_at": "2024-01-15T10:30:00",
+    "created_by": "Teacher 1",
+    "created_by_role": "teacher"
+  },
+  {
+    "id": 2,
+    "name": "Emma Johnson",
+    "dob": "2005-07-22",
+    "class": "10A",
+    "roll_number": "2024002",
+    "created_at": "2024-01-15T10:35:00",
+    "created_by": "Teacher 1",
+    "created_by_role": "teacher"
+  },
+  {
+    "id": 3,
+    "name": "Michael Brown",
+    "dob": "2005-11-08",
+    "class": "10B",
+    "roll_number": "2024003",
+    "created_at": "2024-01-15T10:40:00",
+    "created_by": "Teacher 2",
+    "created_by_role": "teacher"
+  },
+  {
+    "id": 4,
+    "name": "Sarah Davis",
+    "dob": "2005-01-30",
+    "class": "10B",
+    "roll_number": "2024004",
+    "created_at": "2024-01-15T10:45:00",
+    "created_by": "Teacher 2",
+    "created_by_role": "teacher"
+  },
+  {
+    "id": 5,
+    "name": "David Wilson",
+    "dob": "2005-09-12",
+    "class": "11A",
+    "roll_number": "2024005",
+    "created_at": "2024-01-15T10:50:00",
+    "created_by": "Teacher 1",
+    "created_by_role": "teacher"
+  }
+]

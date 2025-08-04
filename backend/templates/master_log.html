@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Master Log</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 2em;
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            min-height: 100vh;
+        }
+        h1 {
+            color: #2d3a4a;
+        }
+        table {
+            background: #fff;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1em;
+            box-shadow: 0 4px 24px rgba(60, 72, 88, 0.10);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        th, td {
+            border: none;
+            padding: 0.85em 1.3em;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(90deg, #667eea 0%, #5a67d8 100%);
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        tr:hover {
+            background: linear-gradient(90deg, #e0e7ff 0%, #f1f5f9 100%);
+        }
+        td {
+            color: #334155;
+        }
+        a {
+            text-decoration: none;
+            color: #6366f1;
+            font-weight: 500;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Master Log (CRUD Operations)</h1>
+    <a href="/dashboard">&larr; Back to Dashboard</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Action</th>
+                <th>User</th>
+                <th>Role</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entry in logs %}
+            {% set parts = entry.split(' ', 2) %}
+            {% set timestamp = parts[0] ~ ' ' ~ parts[1] %}
+            {% set rest = parts[2] if parts|length > 2 else '' %}
+            {% if 'CREATE' in rest or 'READ' in rest or 'UPDATE' in rest or 'DELETE' in rest %}
+                {% set action = rest.split(' ')[0] %}
+                {% set user_role = rest.split('by ')[1].split(')')[0] if 'by ' in rest else '' %}
+                {% set user = user_role.split(' (')[0] if ' (' in user_role else user_role %}
+                {% set role = user_role.split(' (')[1] if ' (' in user_role else '' %}
+                {% set details = rest.split('|', 1)[1].strip() if '|' in rest else '' %}
+                <tr>
+                    <td class="timestamp-cell" data-raw="{{ timestamp }}">{{ timestamp }}</td>
+                    <td>{{ action }}</td>
+                    <td>{{ user }}</td>
+                    <td>{{ role.replace(')', '') }}</td>
+                    <td>{{ details }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+    // Convert and display timestamps in user's local timezone and format
+    document.querySelectorAll('.timestamp-cell').forEach(function(cell) {
+        const raw = cell.getAttribute('data-raw');
+        // Replace comma with dot for milliseconds if needed
+        const iso = raw.replace(',', '.');
+        // Try to parse as local time, fallback to display as is
+        let date = new Date(iso);
+        if (!isNaN(date.getTime())) {
+            cell.textContent = date.toLocaleString(undefined, {
+                year: 'numeric', month: 'short', day: '2-digit',
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                hour12: false,
+                timeZoneName: 'short'
+            });
+        }
+    });
+    </script>
+</body>
+</html> 

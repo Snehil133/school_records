@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal Dashboard - Student Information System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1><i class="fas fa-graduation-cap"></i> Principal Dashboard</h1>
+                    <p>Manage student records with full administrative access</p>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <i class="fas fa-user-shield"></i>
+                        <span id="userName">Loading...</span>
+                        <span class="role-badge principal">Principal</span>
+                    </div>
+                    <a href="/students_list" class="btn btn-secondary" style="margin-right: 1em;">
+                        <i class="fas fa-users"></i> Student List
+                    </a>
+                    <a href="/master_log" class="btn btn-secondary" style="margin-right: 1em;">
+                        <i class="fas fa-book"></i> Master Log
+                    </a>
+                    <a href="/teachers_list" class="btn btn-secondary" style="margin-right: 1em;">
+                        <i class="fas fa-chalkboard-teacher"></i> Teacher List
+                    </a>
+                    <button id="logoutBtn" class="btn btn-outline">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Add Student Form -->
+            <div class="form-section">
+                <h2><i class="fas fa-plus-circle"></i> Add New Student</h2>
+                <form id="studentForm" class="student-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth *</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="class">Class/Course *</label>
+                        <input type="text" id="class" name="class" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Add Student
+                    </button>
+                </form>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <h2><i class="fas fa-search"></i> Search Students</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search by name or roll number...">
+                    <button id="searchBtn" class="btn btn-secondary">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Student Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Student</h3>
+                <span class="close">&times;</span>
+            </div>
+            <form id="editForm" class="edit-form">
+                <input type="hidden" id="editId">
+                <div class="form-group">
+                    <label for="editName">Full Name *</label>
+                    <input type="text" id="editName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDob">Date of Birth *</label>
+                    <input type="date" id="editDob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="editClass">Class/Course *</label>
+                    <input type="text" id="editClass" name="class" required>
+                </div>
+                <div class="form-group">
+                    <label for="editRollNumber">Roll Number</label>
+                    <input type="text" id="editRollNumber" readonly>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Update
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-exclamation-triangle"></i> Confirm Delete</h3>
+                <span class="close" onclick="closeDeleteModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this student?</p>
+                <p id="deleteStudentName" class="delete-student-name"></p>
+                <p class="warning-text">This action cannot be undone!</p>
+            </div>
+            <div class="modal-buttons">
+                <button id="confirmDeleteBtn" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+                <button class="btn btn-secondary" onclick="closeDeleteModal()">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attendance Management Modal -->
+    <div id="attendanceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-calendar-check"></i> Attendance Management</h3>
+                <span class="close" onclick="closeAttendanceModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="attendanceStudentInfo" class="attendance-student-info"></div>
+                <div id="attendanceList" class="attendance-list">
+                    <!-- Attendance records will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="{{ url_for('static', filename='principal.js') }}"></script>
+</body>
+</html> 

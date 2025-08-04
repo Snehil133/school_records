@@ -1,0 +1,40 @@
+{
+  "principal": {
+    "username": "principal",
+    "password": "3549f22fb8622a6d216ef2dcd592e04ed1f1e604cef032d7e5c425e8e72a878e",
+    "role": "principal",
+    "name": "Principal"
+  },
+  "teacher1": {
+    "username": "teacher1",
+    "password": "cde383eee8ee7a4400adf7a15f716f179a2eb97646b37e089eb8d6d04e663416",
+    "role": "teacher",
+    "name": "Snehil",
+    "password_history": [
+      {
+        "password": "cde383eee8ee7a4400adf7a15f716f179a2eb97646b37e089eb8d6d04e663416",
+        "changed_at": "2024-01-01T00:00:00"
+      },
+      {
+        "password": "cde383eee8ee7a4400adf7a15f716f179a2eb97646b37e089eb8d6d04e663416",
+        "changed_at": "2025-07-28T20:58:28.146945"
+      },
+      {
+        "password": "e3e9fc033c2647b79bac54f75d0965c0715c6856e662fd02da8742100e5cda22",
+        "changed_at": "2025-07-28T21:02:53.862481"
+      }
+    ]
+  },
+  "teacher2": {
+    "username": "teacher2",
+    "password": "cde383eee8ee7a4400adf7a15f716f179a2eb97646b37e089eb8d6d04e663416",
+    "role": "teacher",
+    "name": "Sriyans",
+    "password_history": [
+      {
+        "password": "cde383eee8ee7a4400adf7a15f716f179a2eb97646b37e089eb8d6d04e663416",
+        "changed_at": "2024-01-01T00:00:00"
+      }
+    ]
+  }
+}

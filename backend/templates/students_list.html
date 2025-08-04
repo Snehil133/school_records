@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students List - Student Information System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1><i class="fas fa-users"></i> Students List</h1>
+                    <p>View all students and manage their records</p>
+                </div>
+                <div class="header-right">
+                    <a href="/dashboard" class="btn btn-secondary" style="margin-right: 1em;">
+                        <i class="fas fa-arrow-left"></i> Back to Dashboard
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="main-content" style="grid-template-columns: 1fr;">
+            <div class="students-section" style="width: 100%;">
+                <div class="view-controls" style="margin-bottom: 20px; display: flex; gap: 10px; align-items: center;">
+                    <button id="tableViewBtn" class="btn btn-secondary active" onclick="switchToTableView()">
+                        <i class="fas fa-table"></i> Table View
+                    </button>
+                    <button id="cardViewBtn" class="btn btn-outline" onclick="switchToCardView()">
+                        <i class="fas fa-th-large"></i> Card View
+                    </button>
+                </div>
+                
+                <!-- Table View -->
+                <div id="tableView" class="table-view">
+                    <table id="studentsTable" class="students-table" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>Roll Number</th>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th>Class/Course</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Students will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Card View -->
+                <div id="cardView" class="card-view" style="display: none;">
+                    <div id="studentsGrid" class="students-grid">
+                        <!-- Students cards will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Student Modal -->
+    <div id="editStudentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Student</h3>
+                <span class="close" onclick="closeEditStudentModal()">&times;</span>
+            </div>
+            <form id="editStudentForm" class="edit-form">
+                <input type="hidden" id="editStudentId">
+                <div class="form-group">
+                    <label for="editStudentName">Full Name *</label>
+                    <input type="text" id="editStudentName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStudentDob">Date of Birth *</label>
+                    <input type="date" id="editStudentDob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStudentClass">Class/Course *</label>
+                    <input type="text" id="editStudentClass" name="class" required>
+                </div>
+                <div class="form-group">
+                    <label for="editStudentRollNumber">Roll Number</label>
+                    <input type="text" id="editStudentRollNumber" readonly>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeEditStudentModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Update Student
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteStudentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-exclamation-triangle"></i> Confirm Delete</h3>
+                <span class="close" onclick="closeDeleteStudentModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this student?</p>
+                <p id="deleteStudentName" class="delete-student-name"></p>
+                <p class="warning-text">This action cannot be undone!</p>
+            </div>
+            <div class="modal-buttons">
+                <button id="confirmDeleteStudentBtn" class="btn btn-danger">
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+                <button class="btn btn-secondary" onclick="closeDeleteStudentModal()">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='students_list.js') }}"></script>
+</body>
+</html> 

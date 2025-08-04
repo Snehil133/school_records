@@ -1,0 +1,248 @@
+2025-07-24 06:17:50,196 WARNING  * Debugger is active!
+2025-07-24 06:17:50,205 INFO  * Debugger PIN: 291-880-175
+2025-07-24 06:18:23,752 INFO 192.168.1.8 - - [24/Jul/2025 06:18:23] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:18:23,995 INFO 192.168.1.8 - - [24/Jul/2025 06:18:23] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:18:24,006 INFO 192.168.1.8 - - [24/Jul/2025 06:18:24] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:18:24,016 INFO 192.168.1.8 - - [24/Jul/2025 06:18:24] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:18:24,019 INFO 192.168.1.8 - - [24/Jul/2025 06:18:24] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:18:24,022 INFO 192.168.1.8 - - [24/Jul/2025 06:18:24] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:18:30,736 INFO 192.168.1.8 - - [24/Jul/2025 06:18:30] "GET /logout HTTP/1.1" 200 -
+2025-07-24 06:18:30,762 INFO 192.168.1.8 - - [24/Jul/2025 06:18:30] "GET /login HTTP/1.1" 200 -
+2025-07-24 06:18:31,804 INFO 192.168.1.8 - - [24/Jul/2025 06:18:31] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-07-24 06:18:40,781 INFO 192.168.1.8 - - [24/Jul/2025 06:18:40] "POST /login HTTP/1.1" 200 -
+2025-07-24 06:18:41,809 INFO 192.168.1.8 - - [24/Jul/2025 06:18:41] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:18:41,900 INFO 192.168.1.8 - - [24/Jul/2025 06:18:41] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:18:41,927 INFO 192.168.1.8 - - [24/Jul/2025 06:18:41] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:18:41,958 INFO 192.168.1.8 - - [24/Jul/2025 06:18:41] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:18:41,968 INFO 192.168.1.8 - - [24/Jul/2025 06:18:41] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:18:41,978 INFO 192.168.1.8 - - [24/Jul/2025 06:18:41] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:19:01,894 INFO CREATE by principal (principal) | Student: Sriyans (ID: 1)
+2025-07-24 06:19:01,895 INFO 192.168.1.8 - - [24/Jul/2025 06:19:01] "[35m[1mPOST /api/students HTTP/1.1[0m" 201 -
+2025-07-24 06:19:49,411 INFO CREATE by principal (principal) | Student: Nikhil (ID: 2)
+2025-07-24 06:19:49,411 INFO 192.168.1.8 - - [24/Jul/2025 06:19:49] "[35m[1mPOST /api/students HTTP/1.1[0m" 201 -
+2025-07-24 06:20:08,155 INFO 192.168.1.8 - - [24/Jul/2025 06:20:08] "GET /master_log HTTP/1.1" 200 -
+2025-07-24 06:21:01,136 INFO 192.168.1.8 - - [24/Jul/2025 06:21:01] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:21:01,231 INFO 192.168.1.8 - - [24/Jul/2025 06:21:01] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:21:01,264 INFO 192.168.1.8 - - [24/Jul/2025 06:21:01] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:21:01,323 INFO 192.168.1.8 - - [24/Jul/2025 06:21:01] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:21:01,358 INFO 192.168.1.8 - - [24/Jul/2025 06:21:01] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:21:01,378 INFO 192.168.1.8 - - [24/Jul/2025 06:21:01] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:22:33,915 INFO 192.168.1.8 - - [24/Jul/2025 06:22:33] "GET /master_log HTTP/1.1" 200 -
+2025-07-24 06:24:31,877 INFO 192.168.1.8 - - [24/Jul/2025 06:24:31] "GET /master_log HTTP/1.1" 200 -
+2025-07-24 06:25:52,443 INFO 192.168.1.8 - - [24/Jul/2025 06:25:52] "GET /master_log HTTP/1.1" 200 -
+2025-07-24 06:29:17,959 INFO 192.168.1.8 - - [24/Jul/2025 06:29:17] "GET /master_log HTTP/1.1" 200 -
+2025-07-24 06:30:07,537 INFO 192.168.1.8 - - [24/Jul/2025 06:30:07] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:30:07,703 INFO 192.168.1.8 - - [24/Jul/2025 06:30:07] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:30:07,743 INFO 192.168.1.8 - - [24/Jul/2025 06:30:07] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:30:07,854 INFO 192.168.1.8 - - [24/Jul/2025 06:30:07] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:30:07,898 INFO 192.168.1.8 - - [24/Jul/2025 06:30:07] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:30:08,009 INFO 192.168.1.8 - - [24/Jul/2025 06:30:08] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:30:10,163 INFO 192.168.1.8 - - [24/Jul/2025 06:30:10] "GET /master_log HTTP/1.1" 200 -
+2025-07-24 06:30:13,808 INFO 192.168.1.8 - - [24/Jul/2025 06:30:13] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:30:13,952 INFO 192.168.1.8 - - [24/Jul/2025 06:30:13] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:30:13,978 INFO 192.168.1.8 - - [24/Jul/2025 06:30:13] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:30:14,061 INFO 192.168.1.8 - - [24/Jul/2025 06:30:14] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:30:14,082 INFO 192.168.1.8 - - [24/Jul/2025 06:30:14] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:30:14,181 INFO 192.168.1.8 - - [24/Jul/2025 06:30:14] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:30:20,142 INFO 192.168.1.8 - - [24/Jul/2025 06:30:20] "GET /logout HTTP/1.1" 200 -
+2025-07-24 06:30:20,173 INFO 192.168.1.8 - - [24/Jul/2025 06:30:20] "GET /login HTTP/1.1" 200 -
+2025-07-24 06:30:21,898 INFO 192.168.1.8 - - [24/Jul/2025 06:30:21] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-07-24 06:30:33,599 INFO 192.168.1.8 - - [24/Jul/2025 06:30:33] "POST /login HTTP/1.1" 200 -
+2025-07-24 06:30:34,647 INFO 192.168.1.8 - - [24/Jul/2025 06:30:34] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:30:34,789 INFO 192.168.1.8 - - [24/Jul/2025 06:30:34] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:30:34,834 INFO 192.168.1.8 - - [24/Jul/2025 06:30:34] "GET /static/teacher.js HTTP/1.1" 200 -
+2025-07-24 06:30:34,904 INFO 192.168.1.8 - - [24/Jul/2025 06:30:34] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:30:34,915 INFO 192.168.1.8 - - [24/Jul/2025 06:30:34] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:30:34,930 INFO 192.168.1.8 - - [24/Jul/2025 06:30:34] "GET /static/teacher.js HTTP/1.1" 200 -
+2025-07-24 06:30:47,224 INFO UPDATE by teacher1 (teacher) | Student: Sriyans (ID: 1)
+2025-07-24 06:30:47,225 INFO 192.168.1.8 - - [24/Jul/2025 06:30:47] "PUT /api/students/1 HTTP/1.1" 200 -
+2025-07-24 06:30:55,087 INFO 192.168.1.8 - - [24/Jul/2025 06:30:55] "GET /logout HTTP/1.1" 200 -
+2025-07-24 06:30:55,120 INFO 192.168.1.8 - - [24/Jul/2025 06:30:55] "GET /login HTTP/1.1" 200 -
+2025-07-24 06:30:56,888 INFO 192.168.1.8 - - [24/Jul/2025 06:30:56] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-07-24 06:31:04,589 INFO 192.168.1.8 - - [24/Jul/2025 06:31:04] "POST /login HTTP/1.1" 200 -
+2025-07-24 06:31:05,633 INFO 192.168.1.8 - - [24/Jul/2025 06:31:05] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:31:05,768 INFO 192.168.1.8 - - [24/Jul/2025 06:31:05] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:31:05,820 INFO 192.168.1.8 - - [24/Jul/2025 06:31:05] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:31:05,917 INFO 192.168.1.8 - - [24/Jul/2025 06:31:05] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:31:05,984 INFO 192.168.1.8 - - [24/Jul/2025 06:31:05] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:31:06,017 INFO 192.168.1.8 - - [24/Jul/2025 06:31:06] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:31:10,419 INFO 192.168.1.8 - - [24/Jul/2025 06:31:10] "GET /master_log HTTP/1.1" 200 -
+2025-07-24 06:31:45,298 INFO 192.168.1.8 - - [24/Jul/2025 06:31:45] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:31:45,465 INFO 192.168.1.8 - - [24/Jul/2025 06:31:45] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:31:45,493 INFO 192.168.1.8 - - [24/Jul/2025 06:31:45] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:31:45,563 INFO 192.168.1.8 - - [24/Jul/2025 06:31:45] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:31:45,570 INFO 192.168.1.8 - - [24/Jul/2025 06:31:45] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:31:45,578 INFO 192.168.1.8 - - [24/Jul/2025 06:31:45] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:34:35,990 INFO  * Detected change in 'C:\\Users\\snehi\\OneDrive\\Desktop\\GenAI\\student_system\\backend\\app.py', reloading
+2025-07-24 06:34:37,585 WARNING  * Debugger is active!
+2025-07-24 06:34:37,612 INFO  * Debugger PIN: 291-880-175
+2025-07-24 06:34:38,672 INFO  * Detected change in 'C:\\Users\\snehi\\OneDrive\\Desktop\\GenAI\\student_system\\backend\\app.py', reloading
+2025-07-24 06:34:39,924 WARNING  * Debugger is active!
+2025-07-24 06:34:39,937 INFO  * Debugger PIN: 291-880-175
+2025-07-24 06:35:07,756 INFO 192.168.1.8 - - [24/Jul/2025 06:35:07] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:35:08,193 INFO 192.168.1.8 - - [24/Jul/2025 06:35:08] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:35:08,210 INFO 192.168.1.8 - - [24/Jul/2025 06:35:08] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:35:08,230 INFO 192.168.1.8 - - [24/Jul/2025 06:35:08] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:35:08,241 INFO 192.168.1.8 - - [24/Jul/2025 06:35:08] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:35:08,248 INFO 192.168.1.8 - - [24/Jul/2025 06:35:08] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:35:11,295 INFO 192.168.1.8 - - [24/Jul/2025 06:35:11] "GET /logout HTTP/1.1" 200 -
+2025-07-24 06:35:11,341 INFO 192.168.1.8 - - [24/Jul/2025 06:35:11] "GET /login HTTP/1.1" 200 -
+2025-07-24 06:35:12,931 INFO 192.168.1.8 - - [24/Jul/2025 06:35:12] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-07-24 06:35:22,073 INFO 192.168.1.8 - - [24/Jul/2025 06:35:22] "POST /login HTTP/1.1" 200 -
+2025-07-24 06:35:23,113 INFO 192.168.1.8 - - [24/Jul/2025 06:35:23] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:35:23,280 INFO 192.168.1.8 - - [24/Jul/2025 06:35:23] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:35:23,308 INFO 192.168.1.8 - - [24/Jul/2025 06:35:23] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:35:23,391 INFO 192.168.1.8 - - [24/Jul/2025 06:35:23] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:35:23,406 INFO 192.168.1.8 - - [24/Jul/2025 06:35:23] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:35:23,421 INFO 192.168.1.8 - - [24/Jul/2025 06:35:23] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:36:43,590 INFO 192.168.1.8 - - [24/Jul/2025 06:36:43] "GET /logout HTTP/1.1" 200 -
+2025-07-24 06:36:43,626 INFO 192.168.1.8 - - [24/Jul/2025 06:36:43] "GET /login HTTP/1.1" 200 -
+2025-07-24 06:36:45,399 INFO 192.168.1.8 - - [24/Jul/2025 06:36:45] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-07-24 06:37:02,330 INFO 192.168.1.8 - - [24/Jul/2025 06:37:02] "POST /login HTTP/1.1" 200 -
+2025-07-24 06:37:03,371 INFO 192.168.1.8 - - [24/Jul/2025 06:37:03] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:37:03,477 INFO 192.168.1.8 - - [24/Jul/2025 06:37:03] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:37:03,509 INFO 192.168.1.8 - - [24/Jul/2025 06:37:03] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:37:03,602 INFO 192.168.1.8 - - [24/Jul/2025 06:37:03] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:37:03,613 INFO 192.168.1.8 - - [24/Jul/2025 06:37:03] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:37:03,633 INFO 192.168.1.8 - - [24/Jul/2025 06:37:03] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:37:16,939 INFO DELETE by principal (principal) | Student: Sriyans (ID: 1)
+2025-07-24 06:37:16,940 INFO 192.168.1.8 - - [24/Jul/2025 06:37:16] "DELETE /api/students/1 HTTP/1.1" 200 -
+2025-07-24 06:37:19,529 INFO DELETE by principal (principal) | Student: Nikhil (ID: 2)
+2025-07-24 06:37:19,530 INFO 192.168.1.8 - - [24/Jul/2025 06:37:19] "DELETE /api/students/2 HTTP/1.1" 200 -
+2025-07-24 06:37:55,896 INFO 192.168.1.8 - - [24/Jul/2025 06:37:55] "[31m[1mPOST /api/students HTTP/1.1[0m" 400 -
+2025-07-24 06:38:06,757 INFO 192.168.1.8 - - [24/Jul/2025 06:38:06] "[31m[1mPOST /api/students HTTP/1.1[0m" 400 -
+2025-07-24 06:38:13,385 INFO 192.168.1.8 - - [24/Jul/2025 06:38:13] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:38:25,050 INFO 192.168.1.8 - - [24/Jul/2025 06:38:25] "[31m[1mPOST /api/students HTTP/1.1[0m" 400 -
+2025-07-24 06:39:24,522 INFO 192.168.1.8 - - [24/Jul/2025 06:39:24] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:39:24,632 INFO 192.168.1.8 - - [24/Jul/2025 06:39:24] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:39:24,638 INFO 192.168.1.8 - - [24/Jul/2025 06:39:24] "GET /static/principal.js HTTP/1.1" 200 -
+2025-07-24 06:39:24,688 INFO 192.168.1.8 - - [24/Jul/2025 06:39:24] "GET /static/principal.js HTTP/1.1" 200 -
+2025-07-24 06:39:24,864 INFO 192.168.1.8 - - [24/Jul/2025 06:39:24] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:39:24,888 INFO 192.168.1.8 - - [24/Jul/2025 06:39:24] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:39:45,330 INFO CREATE by principal (principal) | Student: Sriyans (ID: 1)
+2025-07-24 06:39:45,332 INFO 192.168.1.8 - - [24/Jul/2025 06:39:45] "[35m[1mPOST /api/students HTTP/1.1[0m" 201 -
+2025-07-24 06:41:27,123 INFO 192.168.1.8 - - [24/Jul/2025 06:41:27] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:41:27,215 INFO 192.168.1.8 - - [24/Jul/2025 06:41:27] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:41:27,227 INFO 192.168.1.8 - - [24/Jul/2025 06:41:27] "GET /static/principal.js HTTP/1.1" 200 -
+2025-07-24 06:41:27,326 INFO 192.168.1.8 - - [24/Jul/2025 06:41:27] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:41:27,364 INFO 192.168.1.8 - - [24/Jul/2025 06:41:27] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:41:28,530 INFO 192.168.1.8 - - [24/Jul/2025 06:41:28] "GET /static/principal.js HTTP/1.1" 200 -
+2025-07-24 06:41:48,217 INFO 192.168.1.8 - - [24/Jul/2025 06:41:48] "GET /master_log HTTP/1.1" 200 -
+2025-07-24 06:41:54,691 INFO 192.168.1.8 - - [24/Jul/2025 06:41:54] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:41:54,923 INFO 192.168.1.8 - - [24/Jul/2025 06:41:54] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:41:54,980 INFO 192.168.1.8 - - [24/Jul/2025 06:41:54] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:41:55,062 INFO 192.168.1.8 - - [24/Jul/2025 06:41:55] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:41:55,068 INFO 192.168.1.8 - - [24/Jul/2025 06:41:55] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:41:55,085 INFO 192.168.1.8 - - [24/Jul/2025 06:41:55] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-24 06:42:05,664 INFO 192.168.1.8 - - [24/Jul/2025 06:42:05] "GET /logout HTTP/1.1" 200 -
+2025-07-24 06:42:05,701 INFO 192.168.1.8 - - [24/Jul/2025 06:42:05] "GET /login HTTP/1.1" 200 -
+2025-07-24 06:42:07,246 INFO 192.168.1.8 - - [24/Jul/2025 06:42:07] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-07-24 06:43:48,371 INFO 192.168.1.8 - - [24/Jul/2025 06:43:48] "POST /login HTTP/1.1" 200 -
+2025-07-24 06:43:49,413 INFO 192.168.1.8 - - [24/Jul/2025 06:43:49] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:43:49,570 INFO 192.168.1.8 - - [24/Jul/2025 06:43:49] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:43:49,613 INFO 192.168.1.8 - - [24/Jul/2025 06:43:49] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:43:49,698 INFO 192.168.1.8 - - [24/Jul/2025 06:43:49] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:43:49,721 INFO 192.168.1.8 - - [24/Jul/2025 06:43:49] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:43:49,790 INFO 192.168.1.8 - - [24/Jul/2025 06:43:49] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:47:27,758 INFO 192.168.1.8 - - [24/Jul/2025 06:47:27] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:47:27,876 INFO 192.168.1.8 - - [24/Jul/2025 06:47:27] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:47:27,911 INFO 192.168.1.8 - - [24/Jul/2025 06:47:27] "GET /static/teacher.js HTTP/1.1" 200 -
+2025-07-24 06:47:28,013 INFO 192.168.1.8 - - [24/Jul/2025 06:47:28] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:47:28,094 INFO 192.168.1.8 - - [24/Jul/2025 06:47:28] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:47:28,105 INFO 192.168.1.8 - - [24/Jul/2025 06:47:28] "GET /static/teacher.js HTTP/1.1" 200 -
+2025-07-24 06:47:40,916 INFO  * Detected change in 'C:\\Users\\snehi\\OneDrive\\Desktop\\GenAI\\student_system\\backend\\app.py', reloading
+2025-07-24 06:47:42,174 WARNING  * Debugger is active!
+2025-07-24 06:47:42,187 INFO  * Debugger PIN: 291-880-175
+2025-07-24 06:48:02,390 INFO 192.168.1.8 - - [24/Jul/2025 06:48:02] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:48:02,877 INFO 192.168.1.8 - - [24/Jul/2025 06:48:02] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:48:02,885 INFO 192.168.1.8 - - [24/Jul/2025 06:48:02] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:48:02,894 INFO 192.168.1.8 - - [24/Jul/2025 06:48:02] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:48:02,930 INFO 192.168.1.8 - - [24/Jul/2025 06:48:02] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:48:02,948 INFO 192.168.1.8 - - [24/Jul/2025 06:48:02] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:48:18,386 INFO 192.168.1.8 - - [24/Jul/2025 06:48:18] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:48:56,112 INFO 192.168.1.8 - - [24/Jul/2025 06:48:56] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:48:56,211 INFO 192.168.1.8 - - [24/Jul/2025 06:48:56] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:48:56,224 INFO 192.168.1.8 - - [24/Jul/2025 06:48:56] "GET /static/teacher.js HTTP/1.1" 200 -
+2025-07-24 06:48:56,238 INFO 192.168.1.8 - - [24/Jul/2025 06:48:56] "GET /static/teacher.js HTTP/1.1" 200 -
+2025-07-24 06:48:56,353 INFO 192.168.1.8 - - [24/Jul/2025 06:48:56] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:48:56,498 INFO 192.168.1.8 - - [24/Jul/2025 06:48:56] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:49:05,193 INFO 192.168.1.8 - - [24/Jul/2025 06:49:05] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:49:31,501 INFO 192.168.1.8 - - [24/Jul/2025 06:49:31] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:49:31,656 INFO 192.168.1.8 - - [24/Jul/2025 06:49:31] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:49:31,666 INFO 192.168.1.8 - - [24/Jul/2025 06:49:31] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:49:31,753 INFO 192.168.1.8 - - [24/Jul/2025 06:49:31] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:49:31,871 INFO 192.168.1.8 - - [24/Jul/2025 06:49:31] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:49:31,897 INFO 192.168.1.8 - - [24/Jul/2025 06:49:31] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:51:03,788 INFO 192.168.1.8 - - [24/Jul/2025 06:51:03] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:51:04,046 INFO 192.168.1.8 - - [24/Jul/2025 06:51:04] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-24 06:51:04,073 INFO 192.168.1.8 - - [24/Jul/2025 06:51:04] "GET /static/teacher.js HTTP/1.1" 200 -
+2025-07-24 06:51:04,240 INFO 192.168.1.8 - - [24/Jul/2025 06:51:04] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:51:04,267 INFO 192.168.1.8 - - [24/Jul/2025 06:51:04] "GET /api/students HTTP/1.1" 200 -
+2025-07-24 06:51:04,344 INFO 192.168.1.8 - - [24/Jul/2025 06:51:04] "GET /static/teacher.js HTTP/1.1" 200 -
+2025-07-24 06:52:23,017 INFO 192.168.1.8 - - [24/Jul/2025 06:52:23] "GET /dashboard HTTP/1.1" 200 -
+2025-07-24 06:52:23,131 INFO 192.168.1.8 - - [24/Jul/2025 06:52:23] "GET /static/dashboard.css HTTP/1.1" 200 -
+2025-07-24 06:52:23,159 INFO 192.168.1.8 - - [24/Jul/2025 06:52:23] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:52:23,224 INFO 192.168.1.8 - - [24/Jul/2025 06:52:23] "[36mGET /static/teacher.js HTTP/1.1[0m" 304 -
+2025-07-24 06:52:23,282 INFO 192.168.1.8 - - [24/Jul/2025 06:52:23] "GET /api/user HTTP/1.1" 200 -
+2025-07-24 06:52:23,322 INFO 192.168.1.8 - - [24/Jul/2025 06:52:23] "GET /api/students HTTP/1.1" 200 -
+2025-07-29 20:30:24,345 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.2:5000
+2025-07-29 20:30:24,345 INFO [33mPress CTRL+C to quit[0m
+2025-07-29 20:30:24,347 INFO  * Restarting with stat
+2025-07-29 20:30:24,849 WARNING  * Debugger is active!
+2025-07-29 20:30:24,865 INFO  * Debugger PIN: 291-880-175
+2025-07-29 20:31:59,505 INFO 127.0.0.1 - - [29/Jul/2025 20:31:59] "GET / HTTP/1.1" 200 -
+2025-07-29 20:31:59,630 INFO 127.0.0.1 - - [29/Jul/2025 20:31:59] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-07-29 20:31:59,911 INFO 127.0.0.1 - - [29/Jul/2025 20:31:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-29 20:32:12,831 INFO 127.0.0.1 - - [29/Jul/2025 20:32:12] "POST /login HTTP/1.1" 200 -
+2025-07-29 20:32:13,855 INFO 127.0.0.1 - - [29/Jul/2025 20:32:13] "GET /dashboard HTTP/1.1" 200 -
+2025-07-29 20:32:14,167 INFO 127.0.0.1 - - [29/Jul/2025 20:32:14] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-29 20:32:14,214 INFO 127.0.0.1 - - [29/Jul/2025 20:32:14] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-29 20:32:14,527 INFO 127.0.0.1 - - [29/Jul/2025 20:32:14] "GET /api/user HTTP/1.1" 200 -
+2025-07-29 20:32:14,530 INFO 127.0.0.1 - - [29/Jul/2025 20:32:14] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-29 20:32:14,550 INFO 127.0.0.1 - - [29/Jul/2025 20:32:14] "GET /api/students HTTP/1.1" 200 -
+2025-07-29 20:32:14,785 INFO 127.0.0.1 - - [29/Jul/2025 20:32:14] "GET /api/teachers HTTP/1.1" 200 -
+2025-07-29 20:32:28,392 INFO DELETE by principal (principal) | Student: Sriyans (ID: 1)
+2025-07-29 20:32:28,393 INFO 127.0.0.1 - - [29/Jul/2025 20:32:28] "DELETE /api/students/1 HTTP/1.1" 200 -
+2025-07-29 20:32:30,292 INFO 127.0.0.1 - - [29/Jul/2025 20:32:30] "GET /logout HTTP/1.1" 200 -
+2025-07-29 20:32:30,557 INFO 127.0.0.1 - - [29/Jul/2025 20:32:30] "GET /login HTTP/1.1" 200 -
+2025-07-29 20:32:30,623 INFO 127.0.0.1 - - [29/Jul/2025 20:32:30] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-07-29 21:09:14,677 INFO 127.0.0.1 - - [29/Jul/2025 21:09:14] "POST /login HTTP/1.1" 200 -
+2025-07-29 21:09:15,701 INFO 127.0.0.1 - - [29/Jul/2025 21:09:15] "GET /dashboard HTTP/1.1" 200 -
+2025-07-29 21:09:16,010 INFO 127.0.0.1 - - [29/Jul/2025 21:09:16] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-29 21:09:16,058 INFO 127.0.0.1 - - [29/Jul/2025 21:09:16] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-29 21:09:16,371 INFO 127.0.0.1 - - [29/Jul/2025 21:09:16] "GET /api/user HTTP/1.1" 200 -
+2025-07-29 21:09:16,374 INFO 127.0.0.1 - - [29/Jul/2025 21:09:16] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-29 21:09:16,376 INFO 127.0.0.1 - - [29/Jul/2025 21:09:16] "GET /api/students HTTP/1.1" 200 -
+2025-07-29 21:09:16,628 INFO 127.0.0.1 - - [29/Jul/2025 21:09:16] "GET /api/teachers HTTP/1.1" 200 -
+2025-07-29 21:09:25,729 INFO 127.0.0.1 - - [29/Jul/2025 21:09:25] "GET /teachers_list HTTP/1.1" 200 -
+2025-07-29 21:09:26,033 INFO 127.0.0.1 - - [29/Jul/2025 21:09:26] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-29 21:09:26,097 INFO 127.0.0.1 - - [29/Jul/2025 21:09:26] "[36mGET /static/teachers_list.js HTTP/1.1[0m" 304 -
+2025-07-29 21:09:26,113 INFO 127.0.0.1 - - [29/Jul/2025 21:09:26] "[36mGET /static/teachers_list.js HTTP/1.1[0m" 304 -
+2025-07-29 21:09:26,414 INFO 127.0.0.1 - - [29/Jul/2025 21:09:26] "GET /api/teachers HTTP/1.1" 200 -
+2025-07-29 21:09:35,015 INFO 127.0.0.1 - - [29/Jul/2025 21:09:35] "GET /dashboard HTTP/1.1" 200 -
+2025-07-29 21:09:35,320 INFO 127.0.0.1 - - [29/Jul/2025 21:09:35] "[36mGET /static/dashboard.css HTTP/1.1[0m" 304 -
+2025-07-29 21:09:35,392 INFO 127.0.0.1 - - [29/Jul/2025 21:09:35] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-29 21:09:35,704 INFO 127.0.0.1 - - [29/Jul/2025 21:09:35] "GET /api/user HTTP/1.1" 200 -
+2025-07-29 21:09:35,712 INFO 127.0.0.1 - - [29/Jul/2025 21:09:35] "GET /api/students HTTP/1.1" 200 -
+2025-07-29 21:09:35,732 INFO 127.0.0.1 - - [29/Jul/2025 21:09:35] "[36mGET /static/principal.js HTTP/1.1[0m" 304 -
+2025-07-29 21:09:36,110 INFO 127.0.0.1 - - [29/Jul/2025 21:09:36] "GET /api/teachers HTTP/1.1" 200 -
+2025-08-04 22:13:29,459 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.199.33.137:5000
+2025-08-04 22:13:29,459 INFO [33mPress CTRL+C to quit[0m
+2025-08-04 22:13:29,463 INFO  * Restarting with stat
+2025-08-04 22:13:30,847 WARNING  * Debugger is active!
+2025-08-04 22:13:30,858 INFO  * Debugger PIN: 291-880-175
+2025-08-04 22:13:43,334 INFO 127.0.0.1 - - [04/Aug/2025 22:13:43] "GET / HTTP/1.1" 200 -
+2025-08-04 22:13:43,597 INFO 127.0.0.1 - - [04/Aug/2025 22:13:43] "[36mGET /static/login.css HTTP/1.1[0m" 304 -
+2025-08-04 22:13:44,248 INFO 127.0.0.1 - - [04/Aug/2025 22:13:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-04 22:13:55,581 INFO 127.0.0.1 - - [04/Aug/2025 22:13:55] "POST /login HTTP/1.1" 200 -
+2025-08-04 22:13:56,648 INFO 127.0.0.1 - - [04/Aug/2025 22:13:56] "GET /dashboard HTTP/1.1" 200 -
+2025-08-04 22:13:56,950 INFO 127.0.0.1 - - [04/Aug/2025 22:13:56] "GET /static/dashboard.css HTTP/1.1" 200 -
+2025-08-04 22:13:57,091 INFO 127.0.0.1 - - [04/Aug/2025 22:13:57] "GET /static/principal.js HTTP/1.1" 200 -
+2025-08-04 22:13:57,420 INFO 127.0.0.1 - - [04/Aug/2025 22:13:57] "GET /api/user HTTP/1.1" 200 -
+2025-08-04 22:13:57,422 INFO 127.0.0.1 - - [04/Aug/2025 22:13:57] "GET /static/principal.js HTTP/1.1" 200 -

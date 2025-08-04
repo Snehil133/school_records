@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Face Recognition Attendance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .dashboard-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 30px;
+        }
+        
+        .welcome-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .camera-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        #video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        #canvas {
+            display: none;
+        }
+        
+        .capture-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .capture-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .status-indicator {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .attendance-history {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .attendance-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .logout-btn {
+            background: #dc3545;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        
+        .logout-btn:hover {
+            background: #c82333;
+            color: white;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .face-status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .face-registered {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .face-not-registered {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="dashboard-container">
+            <!-- Header -->
+            <div class="row mb-4">
+                <div class="col-md-8">
+                    <div class="welcome-card">
+                        <h2><i class="fas fa-user-graduate"></i> Welcome, <span id="studentName">Student</span>!</h2>
+                        <p class="mb-0">Roll Number: <span id="studentRoll">-</span></p>
+                        <div id="faceStatusBadge" class="face-status-badge"></div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button class="btn logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="row">
+                <!-- Face Recognition Section -->
+                <div class="col-md-6" id="attendanceSection">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-camera"></i> Face Recognition Attendance</h4>
+                        <p class="text-muted">Mark your attendance using face recognition</p>
+                        
+                        <div class="camera-container">
+                            <video id="video" autoplay></video>
+                            <canvas id="canvas"></canvas>
+                        </div>
+                        
+                        <div class="text-center mt-3">
+                            <button class="btn capture-btn" onclick="captureAndMarkAttendance()">
+                                <i class="fas fa-camera"></i> Mark Attendance
+                            </button>
+                        </div>
+                        
+                        <div id="attendanceStatus" class="mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Face Registration Section -->
+                <div class="col-md-6" id="registrationSection">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-user-plus"></i> Register Face</h4>
+                        <p class="text-muted">Register your face for attendance marking (First time only)</p>
+                        
+                        <div class="camera-container">
+                            <video id="videoRegister" autoplay></video>
+                            <canvas id="canvasRegister"></canvas>
+                        </div>
+                        
+                        <div class="text-center mt-3">
+                            <button class="btn capture-btn" onclick="captureAndRegisterFace()">
+                                <i class="fas fa-user-plus"></i> Register Face
+                            </button>
+                        </div>
+                        
+                        <div id="registrationStatus" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attendance History -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-history"></i> Attendance History</h4>
+                        <div id="attendanceHistory" class="attendance-history">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                <p>Loading attendance history...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentUser = null;
+        let videoStream = null;
+        let videoStreamRegister = null;
+        let faceRegistered = false;
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded - Starting initialization...');
+            try {
+                console.log('Loading user info...');
+                loadUserInfo();
+                console.log('Checking face status and initializing...');
+                checkFaceStatusAndInitialize();
+                console.log('Loading attendance history...');
+                loadAttendanceHistory();
+            } catch (error) {
+                console.error('Error initializing dashboard:', error);
+                // Fallback initialization
+                setTimeout(() => {
+                    try {
+                        console.log('Fallback initialization...');
+                        loadUserInfo();
+                        checkFaceStatusAndInitialize();
+                        loadAttendanceHistory();
+                    } catch (fallbackError) {
+                        console.error('Fallback initialization failed:', fallbackError);
+                    }
+                }, 1000);
+            }
+        });
+
+        async function loadUserInfo() {
+            try {
+                const response = await fetch('/api/user');
+                if (response.ok) {
+                    currentUser = await response.json();
+                    document.getElementById('studentName').textContent = currentUser.name;
+                    document.getElementById('studentRoll').textContent = currentUser.username;
+                } else {
+                    window.location.href = '/';
+                }
+            } catch (error) {
+                console.error('Error loading user info:', error);
+                window.location.href = '/';
+            }
+        }
+
+        async function checkFaceStatusAndInitialize() {
+            try {
+                console.log('Checking face status...');
+                const response = await fetch('/api/student/face-status');
+                console.log('Face status response:', response);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Face status data:', data);
+                    faceRegistered = data.face_registered;
+                    console.log('faceRegistered set to:', faceRegistered);
+                    updateFaceStatusUI();
+                } else {
+                    console.error('Failed to get face status:', response.status);
+                    faceRegistered = false;
+                    updateFaceStatusUI();
+                }
+            } catch (error) {
+                console.error('Error checking face status:', error);
+                faceRegistered = false;
+                updateFaceStatusUI();
+            }
+            
+            // Initialize cameras after UI is updated
+            setTimeout(() => {
+                initializeCameras();
+            }, 100);
+        }
+
+        function updateFaceStatusUI() {
+            const badge = document.getElementById('faceStatusBadge');
+            const registrationSection = document.getElementById('registrationSection');
+            const attendanceSection = document.getElementById('attendanceSection');
+            
+            console.log('updateFaceStatusUI called with faceRegistered:', faceRegistered);
+            console.log('registrationSection:', registrationSection);
+            console.log('attendanceSection:', attendanceSection);
+            
+            if (faceRegistered) {
+                console.log('Face is registered - hiding registration, showing attendance');
+                badge.textContent = '✅ Face Registered';
+                badge.className = 'face-status-badge face-registered';
+                registrationSection.classList.add('hidden');
+                attendanceSection.classList.remove('hidden');
+            } else {
+                console.log('Face is NOT registered - showing registration, hiding attendance');
+                badge.textContent = '❌ Face Not Registered';
+                badge.className = 'face-status-badge face-not-registered';
+                registrationSection.classList.remove('hidden');
+                attendanceSection.classList.add('hidden');
+            }
+        }
+
+        async function initializeCameras() {
+            try {
+                // Check if camera access is available
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    throw new Error('Camera access not supported');
+                }
+
+                // Initialize main camera for attendance
+                const video = document.getElementById('video');
+                if (video) {
+                    try {
+                        videoStream = await navigator.mediaDevices.getUserMedia({ 
+                            video: { 
+                                width: { ideal: 640 },
+                                height: { ideal: 480 },
+                                facingMode: 'user'
+                            } 
+                        });
+                        video.srcObject = videoStream;
+                    } catch (error) {
+                        console.error('Error initializing main camera:', error);
+                        showStatus('attendanceStatus', 'Error: Camera access denied. Please allow camera access.', 'error');
+                    }
+                }
+
+                // Initialize registration camera only if face not registered
+                if (!faceRegistered) {
+                    const videoRegister = document.getElementById('videoRegister');
+                    if (videoRegister) {
+                        try {
+                            videoStreamRegister = await navigator.mediaDevices.getUserMedia({ 
+                                video: { 
+                                    width: { ideal: 640 },
+                                    height: { ideal: 480 },
+                                    facingMode: 'user'
+                                } 
+                            });
+                            videoRegister.srcObject = videoStreamRegister;
+                        } catch (error) {
+                            console.error('Error initializing registration camera:', error);
+                            showStatus('registrationStatus', 'Error: Camera access denied. Please allow camera access.', 'error');
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error in camera initialization:', error);
+                showStatus('attendanceStatus', 'Error: Camera access not supported.', 'error');
+            }
+        }
+
+        async function captureAndMarkAttendance() {
+            if (!faceRegistered) {
+                showStatus('attendanceStatus', '❌ Please register your face first before marking attendance.', 'error');
+                return;
+            }
+
+            const statusDiv = document.getElementById('attendanceStatus');
+            statusDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Processing...</p></div>';
+            
+            try {
+                const canvas = document.getElementById('canvas');
+                const video = document.getElementById('video');
+                const context = canvas.getContext('2d');
+                
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0);
+                
+                const imageData = canvas.toDataURL('image/jpeg', 0.8);
+                
+                const response = await fetch('/api/student/attendance', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ image: imageData })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showStatus('attendanceStatus', '✅ Attendance marked successfully!', 'success');
+                    loadAttendanceHistory(); // Refresh history
+                } else {
+                    showStatus('attendanceStatus', `❌ ${result.error}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error marking attendance:', error);
+                showStatus('attendanceStatus', '❌ Error marking attendance. Please try again.', 'error');
+            }
+        }
+
+        async function captureAndRegisterFace() {
+            const statusDiv = document.getElementById('registrationStatus');
+            statusDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Processing...</p></div>';
+            
+            try {
+                const canvas = document.getElementById('canvasRegister');
+                const video = document.getElementById('videoRegister');
+                const context = canvas.getContext('2d');
+                
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0);
+                
+                const imageData = canvas.toDataURL('image/jpeg', 0.8);
+                
+                const response = await fetch('/api/student/register-face', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ image: imageData })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showStatus('registrationStatus', '✅ Face registered successfully! Please login again to mark attendance.', 'success');
+                    // Auto logout after successful registration
+                    setTimeout(() => {
+                        logout();
+                    }, 3000);
+                } else {
+                    showStatus('registrationStatus', `❌ ${result.error}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error registering face:', error);
+                showStatus('registrationStatus', '❌ Error registering face. Please try again.', 'error');
+            }
+        }
+
+        async function loadAttendanceHistory() {
+            const historyDiv = document.getElementById('attendanceHistory');
+            historyDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading attendance history...</p></div>';
+            
+            try {
+                const response = await fetch('/api/student/attendance-history');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    displayAttendanceHistory(data.attendance);
+                } else {
+                    historyDiv.innerHTML = '<p class="text-danger">Error loading attendance history</p>';
+                }
+            } catch (error) {
+                console.error('Error loading attendance history:', error);
+                historyDiv.innerHTML = '<p class="text-danger">Error loading attendance history</p>';
+            }
+        }
+
+        function displayAttendanceHistory(attendance) {
+            const historyDiv = document.getElementById('attendanceHistory');
+            
+            if (attendance.length === 0) {
+                historyDiv.innerHTML = '<p class="text-muted">No attendance records found.</p>';
+                return;
+            }
+            
+            let html = '';
+            attendance.forEach(record => {
+                const date = new Date(record.date).toLocaleDateString();
+                const time = new Date(record.timestamp).toLocaleTimeString();
+                const statusClass = record.status === 'present' ? 'text-success' : 'text-danger';
+                const statusIcon = record.status === 'present' ? '✅' : '❌';
+                
+                html += `
+                    <div class="attendance-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <strong>${date}</strong>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="${statusClass}">${statusIcon} ${record.status.toUpperCase()}</span>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <small class="text-muted">${time}</small>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            historyDiv.innerHTML = html;
+        }
+
+        function showStatus(elementId, message, type) {
+            const statusDiv = document.getElementById(elementId);
+            const statusClass = type === 'success' ? 'status-success' : type === 'error' ? 'status-error' : 'status-warning';
+            statusDiv.innerHTML = `<div class="status-indicator ${statusClass}">${message}</div>`;
+            
+            // Clear status after 5 seconds
+            setTimeout(() => {
+                statusDiv.innerHTML = '';
+            }, 5000);
+        }
+
+        async function logout() {
+            try {
+                await fetch('/logout');
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Error logging out:', error);
+                window.location.href = '/';
+            }
+        }
+
+        // Clean up camera streams when page unloads
+        window.addEventListener('beforeunload', function() {
+            try {
+                if (videoStream) {
+                    videoStream.getTracks().forEach(track => {
+                        track.stop();
+                    });
+                }
+                if (videoStreamRegister) {
+                    videoStreamRegister.getTracks().forEach(track => {
+                        track.stop();
+                    });
+                }
+            } catch (error) {
+                console.error('Error cleaning up camera streams:', error);
+            }
+        });
+
+        // Also clean up when page is hidden
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                try {
+                    if (videoStream) {
+                        videoStream.getTracks().forEach(track => {
+                            track.stop();
+                        });
+                    }
+                    if (videoStreamRegister) {
+                        videoStreamRegister.getTracks().forEach(track => {
+                            track.stop();
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error cleaning up camera streams on visibility change:', error);
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

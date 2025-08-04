@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Student Information System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Student Information System</h1>
+                <p>Please login to continue</p>
+            </div>
+            
+            <div class="login-tabs">
+                <button class="tab-btn active" onclick="switchTab('staff')">Staff Login</button>
+                <button class="tab-btn" onclick="switchTab('student')">Student Login</button>
+            </div>
+            
+            <!-- Staff Login Form -->
+            <form id="staffLoginForm" class="login-form active">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i>
+                        Username
+                    </label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Staff Login
+                </button>
+            </form>
+            
+            <!-- Student Login Form -->
+            <form id="studentLoginForm" class="login-form">
+                <div class="form-group">
+                    <label for="rollNumber">
+                        <i class="fas fa-id-card"></i>
+                        Roll Number
+                    </label>
+                    <input type="text" id="rollNumber" name="rollNumber" placeholder="Enter your roll number" required>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-user-graduate"></i>
+                    Student Login
+                </button>
+            </form>
+            
+            <div class="demo-accounts">
+                <h3>Demo Accounts:</h3>
+                <div class="account-info">
+                    <div class="account">
+                        <strong>Principal:</strong>
+                        <span>Username: principal</span>
+                        <span>Password: principal123</span>
+                    </div>
+                    <div class="account">
+                        <strong>Teacher:</strong>
+                        <span>Username: teacher1</span>
+                        <span>Password: teacher123</span>
+                    </div>
+                    <div class="account">
+                        <strong>Students:</strong>
+                        <span>Roll Numbers: 2024001, 2024002, 2024003, 2024004, 2024005</span>
+                        <span>No password required for students</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script>
+        // Tab switching functionality
+        function switchTab(tab) {
+            const staffForm = document.getElementById('staffLoginForm');
+            const studentForm = document.getElementById('studentLoginForm');
+            const staffTab = document.querySelector('.tab-btn:first-child');
+            const studentTab = document.querySelector('.tab-btn:last-child');
+            
+            if (tab === 'staff') {
+                staffForm.classList.add('active');
+                studentForm.classList.remove('active');
+                staffTab.classList.add('active');
+                studentTab.classList.remove('active');
+            } else {
+                studentForm.classList.add('active');
+                staffForm.classList.remove('active');
+                studentTab.classList.add('active');
+                staffTab.classList.remove('active');
+            }
+        }
+        
+        // Staff login form handler
+        document.getElementById('staffLoginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const loginData = {
+                username: formData.get('username'),
+                password: formData.get('password')
+            };
+            
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(loginData),
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showNotification('Login successful! Redirecting...', 'success');
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 1000);
+                } else {
+                    showNotification(data.error || 'Login failed', 'error');
+                }
+            } catch (error) {
+                showNotification('Network error. Please try again.', 'error');
+            }
+        });
+        
+        // Student login form handler
+        document.getElementById('studentLoginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const loginData = {
+                roll_number: formData.get('rollNumber')
+            };
+            
+            try {
+                const response = await fetch('/student/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(loginData),
+                    credentials: 'include'
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showNotification('Student login successful! Redirecting...', 'success');
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 1000);
+                } else {
+                    showNotification(data.error || 'Student login failed', 'error');
+                }
+            } catch (error) {
+                showNotification('Network error. Please try again.', 'error');
+            }
+        });
+        
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html> 
