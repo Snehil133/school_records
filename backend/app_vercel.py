@@ -5,17 +5,19 @@ import os
 from datetime import datetime, date
 import hashlib
 import logging
-from PIL import Image
-import io
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-change-in-production'  # Change this in production
+app.config['SECRET_KEY'] = 'your-secret-key-change-in-production'  # Ensure secret key is in config
 CORS(app, supports_credentials=True)
 
-# Data file paths
-DATA_FILE = 'students.json'
-USERS_FILE = 'users.json'
-ATTENDANCE_FILE = 'attendance.json'
+# Configure for Vercel deployment
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+# Data file paths - use absolute paths for Vercel
+DATA_FILE = os.path.join(os.path.dirname(__file__), 'students.json')
+USERS_FILE = os.path.join(os.path.dirname(__file__), 'users.json')
+ATTENDANCE_FILE = os.path.join(os.path.dirname(__file__), 'attendance.json')
 
 # Default users (in production, use proper password hashing)
 DEFAULT_USERS = {
@@ -39,10 +41,8 @@ DEFAULT_USERS = {
     }
 }
 
-# Set up logging for CRUD operations
-LOG_FILE = 'master.log'
+# Set up logging for CRUD operations - use console logging for Vercel
 logging.basicConfig(
-    filename=LOG_FILE,
     level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s'
 )
@@ -129,6 +129,8 @@ def log_crud_action(action, user, details=None):
     if details:
         log_message += f" | DETAILS: {details}"
     logging.info(log_message)
+    # For Vercel, we'll also print to console for debugging
+    print(f"LOG: {log_message}")
 
 def calculate_age(dob_str):
     """Calculate age from date of birth"""
@@ -187,6 +189,15 @@ def index():
     if 'user' in session:
         return redirect(url_for('dashboard'))
     return render_template('login.html')
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint for Vercel"""
+    return jsonify({
+        'status': 'healthy',
+        'message': 'School Records API is running',
+        'timestamp': datetime.now().isoformat()
+    })
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
